@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module db_mysqlutil</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module db_mysqlutil</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#execute-2">execute/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute2-2">execute2/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#function-2">function/2</a></td><td>调用函数.</td></tr>
+<tr><td valign="top"><a href="#get_all-2">get_all/2</a></td><td>取出查询结果中的所有行.</td></tr>
+<tr><td valign="top"><a href="#get_one-2">get_one/2</a></td><td>取出查询结果中的第一行第一列.</td></tr>
+<tr><td valign="top"><a href="#get_row-2">get_row/2</a></td><td>取出查询结果中的第一行.</td></tr>
+<tr><td valign="top"><a href="#make_createtable_sql-1">make_createtable_sql/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_delete_sql-2">make_delete_sql/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_insert_sql-2">make_insert_sql/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_insert_sql-3">make_insert_sql/3</a></td><td>生成插入语句.</td></tr>
+<tr><td valign="top"><a href="#make_inserts_sql-3">make_inserts_sql/3</a></td><td>生成插入集语句.</td></tr>
+<tr><td valign="top"><a href="#make_replace_sql-2">make_replace_sql/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_select_sql-3">make_select_sql/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_update_sql-3">make_update_sql/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#make_update_sql-5">make_update_sql/5</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_limit-3">select_limit/3</a></td><td>执行分页查询返回结果中的所有行.</td></tr>
+<tr><td valign="top"><a href="#select_limit-4">select_limit/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_limit-5">select_limit/5</a></td><td></td></tr>
+<tr><td valign="top"><a href="#transaction-2">transaction/2</a></td><td>事务处理.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="execute-2">execute/2</a></h3>
+<div class="spec">
+<p><tt>execute(Server, Sql) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="execute2-2">execute2/2</a></h3>
+<div class="spec">
+<p><tt>execute2(Server, Sql) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="function-2">function/2</a></h3>
+<div class="spec">
+<p><tt>function(FunctionName, FunctionArgs) -&gt; any()</tt></p>
+</div><p>调用函数</p>
+
+<h3 class="function"><a name="get_all-2">get_all/2</a></h3>
+<div class="spec">
+<p><tt>get_all(Server, Sql) -&gt; any()</tt></p>
+</div><p>取出查询结果中的所有行</p>
+
+<h3 class="function"><a name="get_one-2">get_one/2</a></h3>
+<div class="spec">
+<p><tt>get_one(Server::any(), Sql) -&gt; list() | null</tt><br></p>
+</div><p>取出查询结果中的第一行第一列</p>
+
+<h3 class="function"><a name="get_row-2">get_row/2</a></h3>
+<div class="spec">
+<p><tt>get_row(Server, Sql) -&gt; any()</tt></p>
+</div><p>取出查询结果中的第一行</p>
+
+<h3 class="function"><a name="make_createtable_sql-1">make_createtable_sql/1</a></h3>
+<div class="spec">
+<p><tt>make_createtable_sql(Table) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_delete_sql-2">make_delete_sql/2</a></h3>
+<div class="spec">
+<p><tt>make_delete_sql(Table_name, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_insert_sql-2">make_insert_sql/2</a></h3>
+<div class="spec">
+<p><tt>make_insert_sql(Table_name, Field_Value_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_insert_sql-3">make_insert_sql/3</a></h3>
+<div class="spec">
+<p><tt>make_insert_sql(Table_name::atom(), FieldList::[atom(), ...], ValueList::[any(), ...]) -&gt; string()</tt><br></p>
+</div><p>生成插入语句</p>
+
+<h3 class="function"><a name="make_inserts_sql-3">make_inserts_sql/3</a></h3>
+<div class="spec">
+<p><tt>make_inserts_sql(Table_name::atom(), FieldList::[atom(), ...], ValueList::[[any(), ...], ...]) -&gt; string()</tt><br></p>
+</div><p>生成插入集语句</p>
+
+<h3 class="function"><a name="make_replace_sql-2">make_replace_sql/2</a></h3>
+<div class="spec">
+<p><tt>make_replace_sql(Table_name, Field_Value_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_select_sql-3">make_select_sql/3</a></h3>
+<div class="spec">
+<p><tt>make_select_sql(Table_name, Fields_sql, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_update_sql-3">make_update_sql/3</a></h3>
+<div class="spec">
+<p><tt>make_update_sql(Table_name, Field_Value_List, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="make_update_sql-5">make_update_sql/5</a></h3>
+<div class="spec">
+<p><tt>make_update_sql(Table_name, Field, Data, Key, Value) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_limit-3">select_limit/3</a></h3>
+<div class="spec">
+<p><tt>select_limit(Sql, Offset, Num) -&gt; any()</tt></p>
+</div><p>执行分页查询返回结果中的所有行</p>
+
+<h3 class="function"><a name="select_limit-4">select_limit/4</a></h3>
+<div class="spec">
+<p><tt>select_limit(Sql, Args, Offset, Num) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_limit-5">select_limit/5</a></h3>
+<div class="spec">
+<p><tt>select_limit(Server, Sql, Args, Offset, Num) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="transaction-2">transaction/2</a></h3>
+<div class="spec">
+<p><tt>transaction(Server, Fun) -&gt; any()</tt></p>
+</div><p>事务处理</p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Dec 31 2015, 13:47:43.</i></p>
+</body>
+</html>

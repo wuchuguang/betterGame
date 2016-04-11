@@ -1,0 +1,13 @@
+{
+    application, network,
+    [
+        {description, "This is network."},
+        {vsn, "1.0a"},
+        {modules, []},
+        {registered, []},
+        {applications, [kernel, stdlib, sasl]},
+        {start_phases, []},
+        {env, []
+        }
+    ]
+}.

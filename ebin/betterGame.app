@@ -1,0 +1,8 @@
+{application,betterGame,
+             [{description,"This is betterGame."},
+              {vsn,"1.0a"},
+              {modules,[]},
+              {registered,[]},
+              {applications,[kernel,stdlib,sasl]},
+              {start_phases,[]},
+              {env,[]}]}.

@@ -1,0 +1,5 @@
+%% encoding: UTF-8
+{application,mysql}.
+{packages,[]}.
+{modules,[db_agent,db_helper,db_mysql,db_mysqlutil,mysql,mysql_auth,
+          mysql_conn,mysql_recv,stat_db]}.

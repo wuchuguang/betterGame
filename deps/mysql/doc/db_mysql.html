@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module db_mysql</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module db_mysql</h1>
+<ul class="index"><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+<p><b>This module is deprecated:</b>  mysql 数据库操作
+  --------------------------------------</p>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#alter_table-4">alter_table/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#create_table-3">create_table/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#delete-3">delete/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute-2">execute/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#fields_repair-4">fields_repair/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#function-3">function/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_fields-2">get_fields/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#insert-3">insert/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#insert-4">insert/4</a></td><td>插入数据表.</td></tr>
+<tr><td valign="top"><a href="#insert2-3">insert2/3</a></td><td>插入数据表.</td></tr>
+<tr><td valign="top"><a href="#insert2-4">insert2/4</a></td><td>插入数据表.</td></tr>
+<tr><td valign="top"><a href="#insert_result-1">insert_result/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#inserts-4">inserts/4</a></td><td>插入数据集.</td></tr>
+<tr><td valign="top"><a href="#replace-3">replace/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_all-4">select_all/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_all-6">select_all/6</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_count-3">select_count/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_one-4">select_one/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_one-6">select_one/6</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_row-4">select_row/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#select_row-6">select_row/6</a></td><td></td></tr>
+<tr><td valign="top"><a href="#show_tables-1">show_tables/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#transaction-2">transaction/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#update-4">update/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#update-6">update/6</a></td><td></td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="alter_table-4">alter_table/4</a></h3>
+<div class="spec">
+<p><tt>alter_table(Server, Table, X3, BeforeColumn) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="create_table-3">create_table/3</a></h3>
+<div class="spec">
+<p><tt>create_table(DB, Table, Fields) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="delete-3">delete/3</a></h3>
+<div class="spec">
+<p><tt>delete(Server, Table_name, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="execute-2">execute/2</a></h3>
+<div class="spec">
+<p><tt>execute(Server, Sql) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="fields_repair-4">fields_repair/4</a></h3>
+<div class="spec">
+<p><tt>fields_repair(DB, Table, OldFields, NewFields) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="function-3">function/3</a></h3>
+<div class="spec">
+<p><tt>function(Server, FunctionName, FunctionArgs) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_fields-2">get_fields/2</a></h3>
+<div class="spec">
+<p><tt>get_fields(Server, Table) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="insert-3">insert/3</a></h3>
+<div class="spec">
+<p><tt>insert(Server, Table_name, Field_Value_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="insert-4">insert/4</a></h3>
+<div class="spec">
+<p><tt>insert(Server, Table_name, FieldList, ValueList) -&gt; any()</tt></p>
+</div><p>插入数据表</p>
+
+<h3 class="function"><a name="insert2-3">insert2/3</a></h3>
+<div class="spec">
+<p><tt>insert2(Server, Table_name, Field_Value_List) -&gt; {ok, any()} | {false, notexist | notfield | other}</tt><br></p>
+</div><p>插入数据表</p>
+
+<h3 class="function"><a name="insert2-4">insert2/4</a></h3>
+<div class="spec">
+<p><tt>insert2(Server, Table_name, FieldList, ValueList) -&gt; {ok, any()} | {false, notexist | notfield | other}</tt><br></p>
+</div><p>插入数据表</p>
+
+<h3 class="function"><a name="insert_result-1">insert_result/1</a></h3>
+<div class="spec">
+<p><tt>insert_result(Result) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="inserts-4">inserts/4</a></h3>
+<div class="spec">
+<p><tt>inserts(Server, TableName, FieldList, ValuesLists) -&gt; any()</tt></p>
+</div><p>插入数据集</p>
+
+<h3 class="function"><a name="replace-3">replace/3</a></h3>
+<div class="spec">
+<p><tt>replace(Server, Table_name, Field_Value_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_all-4">select_all/4</a></h3>
+<div class="spec">
+<p><tt>select_all(Server, Table_name, Fields_sql, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_all-6">select_all/6</a></h3>
+<div class="spec">
+<p><tt>select_all(Server, Table_name, Fields_sql, Where_List, Order_List, Limit_num) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_count-3">select_count/3</a></h3>
+<div class="spec">
+<p><tt>select_count(Server, Table_name, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_one-4">select_one/4</a></h3>
+<div class="spec">
+<p><tt>select_one(Server, Table_name, Fields_sql, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_one-6">select_one/6</a></h3>
+<div class="spec">
+<p><tt>select_one(Server, Table_name, Fields_sql, Where_List, Order_List, Limit_num) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_row-4">select_row/4</a></h3>
+<div class="spec">
+<p><tt>select_row(Server, Table_name, Fields_sql, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="select_row-6">select_row/6</a></h3>
+<div class="spec">
+<p><tt>select_row(Server, Table_name, Fields_sql, Where_List, Order_List, Limit_num) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="show_tables-1">show_tables/1</a></h3>
+<div class="spec">
+<p><tt>show_tables(Server) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="transaction-2">transaction/2</a></h3>
+<div class="spec">
+<p><tt>transaction(Server, Fun) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="update-4">update/4</a></h3>
+<div class="spec">
+<p><tt>update(Server, Table_name, Field_Value_List, Where_List) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="update-6">update/6</a></h3>
+<div class="spec">
+<p><tt>update(Server, Table_name, Field, Data, Key, Value) -&gt; any()</tt></p>
+</div>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Dec 31 2015, 13:47:43.</i></p>
+</body>
+</html>

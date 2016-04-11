@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Module mysql</title>
+<link rel="stylesheet" type="text/css" href="stylesheet.css" title="EDoc">
+</head>
+<body bgcolor="white">
+<div class="navbar"><a name="#navbar_top"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<hr>
+
+<h1>Module mysql</h1>
+<ul class="index"><li><a href="#types">Data Types</a></li><li><a href="#index">Function Index</a></li><li><a href="#functions">Function Details</a></li></ul>
+
+<p><b>Behaviours:</b> <a href="gen_server.html"><tt>gen_server</tt></a>.</p>
+
+<h2><a name="types">Data Types</a></h2>
+
+<h3 class="typedecl"><a name="type-mysql_result">mysql_result()</a></h3>
+<p><tt>mysql_result() = term()</tt></p>
+
+
+<h3 class="typedecl"><a name="type-query_result">query_result()</a></h3>
+<p><tt>query_result() = {data, <a href="#type-mysql_result">mysql_result()</a>} | {updated, <a href="#type-mysql_result">mysql_result()</a>} | {error, <a href="#type-mysql_result">mysql_result()</a>}</tt></p>
+
+
+<h2><a name="index">Function Index</a></h2>
+<table width="100%" border="1" cellspacing="0" cellpadding="2" summary="function index"><tr><td valign="top"><a href="#asciz_binary-2">asciz_binary/2</a></td><td>Find the first zero-byte in Data and add everything before it
+    to Acc, as a string.</td></tr>
+<tr><td valign="top"><a href="#code_change-3">code_change/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#connect-10">connect/10</a></td><td>Starts a MySQL connection and, if successful, add it to the
+    connection pool in the dispatcher.</td></tr>
+<tr><td valign="top"><a href="#connect-8">connect/8</a></td><td></td></tr>
+<tr><td valign="top"><a href="#connect-9">connect/9</a></td><td>Equivalent to <a href="#connect-9"><tt>connect(PoolId, Host, Port, User, Password, Database,
+	Encoding, Reconnect, true)</tt></a>.
+</td></tr>
+<tr><td valign="top"><a href="#disconnect-1">disconnect/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#encode-1">encode/1</a></td><td>Encode a value so that it can be included safely in a MySQL query.</td></tr>
+<tr><td valign="top"><a href="#encode-2">encode/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute-1">execute/1</a></td><td>Execute a query inside a transaction.</td></tr>
+<tr><td valign="top"><a href="#execute-2">execute/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute-3">execute/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute-4">execute/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#execute-5">execute/5</a></td><td></td></tr>
+<tr><td valign="top"><a href="#fetch-1">fetch/1</a></td><td>Fetch a query inside a transaction.</td></tr>
+<tr><td valign="top"><a href="#fetch-2">fetch/2</a></td><td>Send a query to a connection from the connection pool and wait
+    for the result.</td></tr>
+<tr><td valign="top"><a href="#fetch-4">fetch/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_prepared-2">get_prepared/2</a></td><td>Get the prepared statement with the given name.</td></tr>
+<tr><td valign="top"><a href="#get_prepared-3">get_prepared/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#get_result_affected_rows-1">get_result_affected_rows/1</a></td><td>Extract the Rows from MySQL Result on update.</td></tr>
+<tr><td valign="top"><a href="#get_result_field_info-1">get_result_field_info/1</a></td><td>Extract the FieldInfo from MySQL Result on data received.</td></tr>
+<tr><td valign="top"><a href="#get_result_reason-1">get_result_reason/1</a></td><td>Extract the error Reason from MySQL Result on error.</td></tr>
+<tr><td valign="top"><a href="#get_result_rows-1">get_result_rows/1</a></td><td>Extract the Rows from MySQL Result on data received.</td></tr>
+<tr><td valign="top"><a href="#handle_call-3">handle_call/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_cast-2">handle_cast/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#handle_info-2">handle_info/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#init-1">init/1</a></td><td></td></tr>
+<tr><td valign="top"><a href="#log-4">log/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#prepare-3">prepare/3</a></td><td>Register a prepared statement with the dispatcher.</td></tr>
+<tr><td valign="top"><a href="#start-6">start/6</a></td><td>These functions are similar to their start_link counterparts,
+  but they call gen_server:start() instead of gen_server:start_link().</td></tr>
+<tr><td valign="top"><a href="#start-7">start/7</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start-8">start/8</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start-9">start/9</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start_link-6">start_link/6</a></td><td>Starts the MySQL client gen_server process.</td></tr>
+<tr><td valign="top"><a href="#start_link-7">start_link/7</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start_link-8">start_link/8</a></td><td></td></tr>
+<tr><td valign="top"><a href="#start_link-9">start_link/9</a></td><td></td></tr>
+<tr><td valign="top"><a href="#terminate-2">terminate/2</a></td><td></td></tr>
+<tr><td valign="top"><a href="#transaction-2">transaction/2</a></td><td>Execute a transaction in a connection belonging to the connection pool.</td></tr>
+<tr><td valign="top"><a href="#transaction-3">transaction/3</a></td><td></td></tr>
+<tr><td valign="top"><a href="#transaction-4">transaction/4</a></td><td></td></tr>
+<tr><td valign="top"><a href="#unprepare-2">unprepare/2</a></td><td>Unregister a statement that has previously been register with
+    the dispatcher.</td></tr>
+</table>
+
+<h2><a name="functions">Function Details</a></h2>
+
+<h3 class="function"><a name="asciz_binary-2">asciz_binary/2</a></h3>
+<div class="spec">
+<p><tt>asciz_binary(Data::binary(), Acc::list()) -&gt; {NewList::list(), Rest::binary()}</tt><br></p>
+</div><p>Find the first zero-byte in Data and add everything before it
+    to Acc, as a string.
+ </p>
+
+<h3 class="function"><a name="code_change-3">code_change/3</a></h3>
+<div class="spec">
+<p><tt>code_change(OldVsn, State, Extra) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="connect-10">connect/10</a></h3>
+<div class="spec">
+<p><tt>connect(Server::any(), PoolId::atom(), Host::string(), Port::integer() | undefined, User::string(), Password::string(), Database::string(), Encoding::string(), Reconnect::bool(), LinkConnection::bool()) -&gt; {ok, ConnPid} | {error, Reason}</tt><br></p>
+</div><p>Starts a MySQL connection and, if successful, add it to the
+    connection pool in the dispatcher.
+ </p>
+
+<h3 class="function"><a name="connect-8">connect/8</a></h3>
+<div class="spec">
+<p><tt>connect(Server, PoolId, Host, X4, User, Password, Database, Reconnect) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="connect-9">connect/9</a></h3>
+<div class="spec">
+<p><tt>connect(Server, PoolId, Host, Port, User, Password, Database, Encoding, Reconnect) -&gt; any()</tt></p>
+</div><p>Equivalent to <a href="#connect-9"><tt>connect(PoolId, Host, Port, User, Password, Database,
+	Encoding, Reconnect, true)</tt></a>.</p>
+
+
+<h3 class="function"><a name="disconnect-1">disconnect/1</a></h3>
+<div class="spec">
+<p><tt>disconnect(Server) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="encode-1">encode/1</a></h3>
+<div class="spec">
+<p><tt>encode(Val) -&gt; any()</tt></p>
+</div><p>Encode a value so that it can be included safely in a MySQL query.
+ </p>
+
+<h3 class="function"><a name="encode-2">encode/2</a></h3>
+<div class="spec">
+<p><tt>encode(Val::term(), AsBinary::bool()) -&gt; string() | binary() | {error, Error}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="execute-1">execute/1</a></h3>
+<div class="spec">
+<p><tt>execute(Name) -&gt; any()</tt></p>
+</div><p>Execute a query inside a transaction.
+ </p>
+
+<h3 class="function"><a name="execute-2">execute/2</a></h3>
+<div class="spec">
+<p><tt>execute(Name::atom, Params::[term()]) -&gt; <a href="#type-mysql_result">mysql_result()</a></tt><br></p>
+</div>
+
+<h3 class="function"><a name="execute-3">execute/3</a></h3>
+<div class="spec">
+<p><tt>execute(PoolId, Name, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="execute-4">execute/4</a></h3>
+<div class="spec">
+<p><tt>execute(PoolId, Name, Params, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="execute-5">execute/5</a></h3>
+<div class="spec">
+<p><tt>execute(Server, PoolId, Name, Params, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="fetch-1">fetch/1</a></h3>
+<div class="spec">
+<p><tt>fetch(Query::iolist()) -&gt; <a href="#type-query_result">query_result()</a></tt><br></p>
+</div><p>Fetch a query inside a transaction.
+ </p>
+
+<h3 class="function"><a name="fetch-2">fetch/2</a></h3>
+<div class="spec">
+<p><tt>fetch(PoolId::atom(), Query::iolist()) -&gt; <a href="#type-query_result">query_result()</a></tt><br></p>
+</div><p>Send a query to a connection from the connection pool and wait
+    for the result. If this function is called inside a transaction,
+    the PoolId parameter is ignored.
+ </p>
+
+<h3 class="function"><a name="fetch-4">fetch/4</a></h3>
+<div class="spec">
+<p><tt>fetch(Server, PoolId, Query, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_prepared-2">get_prepared/2</a></h3>
+<div class="spec">
+<p><tt>get_prepared(Name::atom(), Version::integer()) -&gt; {ok, latest} | {ok, Statement::binary()} | {error, Err}</tt><br></p>
+</div><p><p>Get the prepared statement with the given name.</p>
+ 
+   <p>This function is called from mysql_conn when the connection is   
+told to execute a prepared statement it has not yet prepared, or   
+when it is told to execute a statement inside a transaction and   
+it's not sure that it has the latest version of the statement.</p>
+ 
+   If the latest version of the prepared statement matches the Version
+   parameter, the return value is {ok, latest}. This saves the cost
+   of sending the query when the connection already has the latest version.
+ </p>
+
+<h3 class="function"><a name="get_prepared-3">get_prepared/3</a></h3>
+<div class="spec">
+<p><tt>get_prepared(Server, Name, Version) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="get_result_affected_rows-1">get_result_affected_rows/1</a></h3>
+<div class="spec">
+<p><tt>get_result_affected_rows(MySQLRes::<a href="#type-mysql_result">mysql_result()</a>) -&gt; AffectedRows::integer()</tt><br></p>
+</div><p>Extract the Rows from MySQL Result on update
+ </p>
+
+<h3 class="function"><a name="get_result_field_info-1">get_result_field_info/1</a></h3>
+<div class="spec">
+<p><tt>get_result_field_info(MySQLRes::<a href="#type-mysql_result">mysql_result()</a>) -&gt; [{Table, Field, Length, Name}]</tt><br></p>
+</div><p>Extract the FieldInfo from MySQL Result on data received.
+ </p>
+
+<h3 class="function"><a name="get_result_reason-1">get_result_reason/1</a></h3>
+<div class="spec">
+<p><tt>get_result_reason(MySQLRes::<a href="#type-mysql_result">mysql_result()</a>) -&gt; Reason::string()</tt><br></p>
+</div><p>Extract the error Reason from MySQL Result on error
+ </p>
+
+<h3 class="function"><a name="get_result_rows-1">get_result_rows/1</a></h3>
+<div class="spec">
+<p><tt>get_result_rows(MySQLRes::<a href="#type-mysql_result">mysql_result()</a>) -&gt; [Row::list()]</tt><br></p>
+</div><p>Extract the Rows from MySQL Result on data received
+ </p>
+
+<h3 class="function"><a name="handle_call-3">handle_call/3</a></h3>
+<div class="spec">
+<p><tt>handle_call(X1, From, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_cast-2">handle_cast/2</a></h3>
+<div class="spec">
+<p><tt>handle_cast(X1, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="handle_info-2">handle_info/2</a></h3>
+<div class="spec">
+<p><tt>handle_info(X1, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="init-1">init/1</a></h3>
+<div class="spec">
+<p><tt>init(X1) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="log-4">log/4</a></h3>
+<div class="spec">
+<p><tt>log(Module, Line, Level, FormatFun) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="prepare-3">prepare/3</a></h3>
+<div class="spec">
+<p><tt>prepare(Server::any(), Name::atom(), Query::iolist()) -&gt; ok</tt><br></p>
+</div><p>Register a prepared statement with the dispatcher. This call does not
+    prepare the statement in any connections. The statement is prepared
+    lazily in each connection when it is told to execute the statement.
+    If the Name parameter matches the name of a statement that has
+    already been registered, the version of the statement is incremented
+    and all connections that have already prepared the statement will
+    prepare it again with the newest version.
+ </p>
+
+<h3 class="function"><a name="start-6">start/6</a></h3>
+<div class="spec">
+<p><tt>start(Server, PoolId, Host, User, Password, Database) -&gt; any()</tt></p>
+</div><p>These functions are similar to their start_link counterparts,
+  but they call gen_server:start() instead of gen_server:start_link()</p>
+
+<h3 class="function"><a name="start-7">start/7</a></h3>
+<div class="spec">
+<p><tt>start(Server, PoolId, Host, Port, User, Password, Database) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start-8">start/8</a></h3>
+<div class="spec">
+<p><tt>start(Server, PoolId, Host, Port, User, Password, Database, LogFun) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start-9">start/9</a></h3>
+<div class="spec">
+<p><tt>start(Server, PoolId, Host, Port, User, Password, Database, LogFun, Encoding) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start_link-6">start_link/6</a></h3>
+<div class="spec">
+<p><tt>start_link(Server, PoolId, Host, User, Password, Database) -&gt; any()</tt></p>
+</div><p><p>Starts the MySQL client gen_server process.</p>
+ 
+  The Port and LogFun parameters are optional.
+ </p>
+
+<h3 class="function"><a name="start_link-7">start_link/7</a></h3>
+<div class="spec">
+<p><tt>start_link(PoolId::atom(), Host::string(), Port::integer(), Username::string(), Password::string(), Database::string(), LogFun::undefined | function()) -&gt; {ok, Pid} | ignore | {error, Err}</tt><br></p>
+</div>
+
+<h3 class="function"><a name="start_link-8">start_link/8</a></h3>
+<div class="spec">
+<p><tt>start_link(Server, PoolId, Host, Port, User, Password, Database, LogFun) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="start_link-9">start_link/9</a></h3>
+<div class="spec">
+<p><tt>start_link(Server, PoolId, Host, Port, User, Password, Database, LogFun, Encoding) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="terminate-2">terminate/2</a></h3>
+<div class="spec">
+<p><tt>terminate(Reason, State) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="transaction-2">transaction/2</a></h3>
+<div class="spec">
+<p><tt>transaction(PoolId::atom(), Fun::function()) -&gt; {atomic, Result} | {aborted, {Reason, {rollback_result, Result}}}</tt><br></p>
+</div><p><p>Execute a transaction in a connection belonging to the connection pool.  
+Fun is a function containing a sequence of calls to fetch() and/or  
+execute().  
+If an error occurs, or if the function does any of the following:</p>
+ 
+  <p>- throw(error)  
+- throw({error, Err})  
+- return error  
+- return {error, Err}  
+- exit(Reason)</p>
+ 
+  the transaction is automatically rolled back.
+ </p>
+
+<h3 class="function"><a name="transaction-3">transaction/3</a></h3>
+<div class="spec">
+<p><tt>transaction(Server, PoolId, Fun) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="transaction-4">transaction/4</a></h3>
+<div class="spec">
+<p><tt>transaction(Server, PoolId, Fun, Timeout) -&gt; any()</tt></p>
+</div>
+
+<h3 class="function"><a name="unprepare-2">unprepare/2</a></h3>
+<div class="spec">
+<p><tt>unprepare(Server::any(), Name::atom()) -&gt; ok</tt><br></p>
+</div><p>Unregister a statement that has previously been register with
+    the dispatcher. All calls to execute() with the given statement
+    will fail once the statement is unprepared. If the statement hasn't
+    been prepared, nothing happens.
+ </p>
+<hr>
+
+<div class="navbar"><a name="#navbar_bottom"></a><table width="100%" border="0" cellspacing="0" cellpadding="2" summary="navigation bar"><tr><td><a href="overview-summary.html" target="overviewFrame">Overview</a></td><td><a href="http://www.erlang.org/"><img src="erlang.png" align="right" border="0" alt="erlang logo"></a></td></tr></table></div>
+<p><i>Generated by EDoc, Dec 31 2015, 13:47:43.</i></p>
+</body>
+</html>

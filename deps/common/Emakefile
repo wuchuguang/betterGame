@@ -1,0 +1,18 @@
+%% common 编译
+{
+[
+'src/*'
+],
+[
+{i, "include"},
+{outdir, "ebin"},
+inline,
+report,
+warn_export_vars,
+warn_shadow_vars,
+warn_obsolete_guard,
+warn_unused_import,
+warn_unused_records,
+verbose
+]
+}.

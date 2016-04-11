@@ -1,0 +1,13 @@
+{application,network,
+             [{description,"This is network."},
+              {vsn,"1.0a"},
+              {modules,[connection,proto_util,protocol_hook,protocol_mod,
+                        server_reader,stat,stream_reader,stream_writer,
+                        tcp_acceptor,tcp_acceptor_sup,tcp_client_sup,
+                        tcp_listener,tcp_listener_server,tcp_listener_sup,
+                        tcp_process_sup,udp_listener_server,udp_listener_sup,
+                        xox_protocol]},
+              {registered,[]},
+              {applications,[kernel,stdlib,sasl]},
+              {start_phases,[]},
+              {env,[]}]}.
